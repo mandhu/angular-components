@@ -17,7 +17,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "mat-slide-panel": [
+        "dist/mat-slide-panel/mat-slide-panel",
+        "dist/mat-slide-panel"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

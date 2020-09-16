@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatSlidePanel } from 'projects/mat-slide-panel/src/public-api';
+import { TestComponent } from './test/test.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ngx-workspace';
+
+  constructor(private slidePanel: MatSlidePanel) {
+
+  }
+
+  open() {
+    this.slidePanel.open(TestComponent, {
+      // slideFrom: 'left'
+    });
+  }
 }

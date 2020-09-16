@@ -1,0 +1,41 @@
+@import '~@angular/cdk/a11y/a11y';
+
+$_mat-slide-panel-width-increment: 64px;
+$mat-slide-panel-container-vertical-padding: 16px !default;
+$mat-slide-panel-container-horizontal-padding: 16px !default;
+
+.mat-slide-panel-container {
+  padding: $mat-slide-panel-container-vertical-padding $mat-slide-panel-container-horizontal-padding;
+  box-sizing: border-box;
+  display: block;
+  outline: 0;
+  height: 100vh;
+  overflow: auto;
+
+  @include cdk-high-contrast(active, off) {
+    outline: 1px solid;
+  }
+}
+
+%_mat-slide-panel-container-border-radius {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.mat-slide-panel-container-medium {
+  @extend %_mat-slide-panel-container-border-radius;
+  min-width: $_mat-slide-panel-width-increment * 6;
+  max-width: calc(100vw - #{$_mat-slide-panel-width-increment * 2});
+}
+
+.mat-slide-panel-container-large {
+  @extend %_mat-slide-panel-container-border-radius;
+  min-width: $_mat-slide-panel-width-increment * 8;
+  max-width: calc(100vw - #{$_mat-slide-panel-width-increment * 4});
+}
+
+.mat-slide-panel-container-xlarge {
+  @extend %_mat-slide-panel-container-border-radius;
+  min-width: $_mat-slide-panel-width-increment * 9;
+  max-width: calc(100vw - #{$_mat-slide-panel-width-increment * 6});
+}
