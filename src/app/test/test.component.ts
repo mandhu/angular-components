@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_SLIDE_PANEL_DATA } from 'projects/mat-slide-panel/src/public-api';
 
 @Component({
   selector: 'app-test',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Inject(MAT_SLIDE_PANEL_DATA) public data) { }
 
   ngOnInit(): void {
   }

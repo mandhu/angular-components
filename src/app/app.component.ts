@@ -16,7 +16,7 @@ export class AppComponent {
 
   open() {
     this.slidePanel.open(TestComponent, {
-      // slideFrom: 'left'
+      data: {name: 'Text'}
     });
   }
 }

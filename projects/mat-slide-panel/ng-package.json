@@ -1,6 +1,9 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/mat-slide-panel",
+  "assets": [
+    "src/lib/_mat-slide-panel-theme.scss"
+  ],
   "lib": {
     "entryFile": "src/public-api.ts"
   }
