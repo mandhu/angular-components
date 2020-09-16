@@ -34,18 +34,17 @@ import { AnimationCurves, AnimationDurations } from '@angular/material/core';
   encapsulation: ViewEncapsulation.None,
   animations: [ matSlidePanelAnimations('right'), matSlidePanelAnimations('left')],
   host: {
+    'class': 'mat-slide-panel-container',
+    'tabindex': '-1',
+    'role': 'dialog',
+    'aria-modal': 'true',
+    '[attr.aria-label]': 'matSlidePanelConfig?.ariaLabel',
     '[@right]': '{value: _animationState, params: {xValue: xValue}}',
     '(@right.start)': '_onAnimationStart($event)',
     '(@right.done)': '_onAnimationDone($event)',
   },
 })
 export class MatSlidePanelContainer extends BasePortalOutlet implements OnDestroy {
-
-  @HostBinding('class') class = 'mat-slide-panel-container';
-  @HostBinding('tabindex') tabindex = -1;
-  @HostBinding('role') role = 'dialog';
-  @HostBinding('aria-modal') ariaModal = true;
-  @HostBinding('[attr.aria-label]') ariaLabel = this.matSlidePanelConfig?.ariaLabel;
   /** The portal outlet inside of this container into which the content will be loaded. */
   @ViewChild(CdkPortalOutlet, {static: true}) _portalOutlet: CdkPortalOutlet;
 

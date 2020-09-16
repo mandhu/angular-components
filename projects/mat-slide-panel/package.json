@@ -8,6 +8,6 @@
     "@angular/cdk": "^10.2.1",
     "@angular/common": "^10.1.1",
     "@angular/core": "^10.1.1",
-    "@angular/material": "^^10.2.1"
+    "@angular/material": "^10.2.1"
   }
 }
