@@ -1,6 +1,22 @@
 {
   "name": "ngx-mat-slide-panel",
-  "version": "0.0.2",
+  "version": "0.0.3",
+  "author": "Mamdhooh Mohamed",
+  "github": "https://github.com/mandhu/angular-material-components",
+  "license": "MIT",
+  "readme": "README.md",
+  "bugs": {
+    "url": "https://github.com/mandhu/angular-material-components/issues"
+  },
+  "keywords": [
+    "angular",
+    "material",
+    "ng",
+    "overlay",
+    "cdk",
+    "overlay-panel",
+    "mat-sliding-panel"
+  ],
   "dependencies": {
     "tslib": "^2.0.0"
   },
