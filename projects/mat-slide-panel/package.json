@@ -1,5 +1,5 @@
 {
-  "name": "mat-slide-panel",
+  "name": "ngx-mat-slide-panel",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/cdk": "^9.1.2",
