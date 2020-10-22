@@ -44,10 +44,7 @@ export class MatSlidePanelContainer extends BasePortalOutlet implements OnDestro
   /** The portal outlet inside of this container into which the content will be loaded. */
   @ViewChild(CdkPortalOutlet, {static: true}) _portalOutlet: CdkPortalOutlet;
 
-  _animationState: 'void' | 'visible' | 'hidden' | 'right' | 'left' = 'left';
-
-  position = this.matSlidePanelConfig.slideFrom;
-  xValue = this.matSlidePanelConfig.slideFrom === 'right' ? '100' : '-100';
+  _animationState: 'void' | 'visible' | 'hidden' = 'void';
 
   /** Emits whenever the state of the animation changes. */
   _animationStateChanged = new EventEmitter<AnimationEvent>();

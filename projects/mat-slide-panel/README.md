@@ -2,7 +2,7 @@
 
 
 ## About ## 
-This is an angular(V10+) material component for slide overlay panel from right;
+This is an angular(V10+) material component for slide overlay panel from left / right;
 
 Most of the API is same as [MatBottomSheet](https://material.angular.io/components/bottom-sheet/api)
 
@@ -54,7 +54,8 @@ export class AppComponent {
 
   open() {
     this.slidePanel.open(TestComponent, {
-        data: {name: 'Test'}
+        data: {name: 'Test'},
+        slideFrom: 'left' // default is 'right'
     });
   }
 }
