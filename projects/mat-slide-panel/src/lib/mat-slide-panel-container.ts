@@ -1,30 +1,23 @@
 import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ComponentRef,
-  EmbeddedViewRef,
-  ViewChild,
-  OnDestroy,
   ElementRef,
-  ChangeDetectionStrategy,
-  ViewEncapsulation,
-  ChangeDetectorRef,
+  EmbeddedViewRef,
   EventEmitter,
   Inject,
-  Optional, HostBinding,
+  OnDestroy,
+  Optional,
+  ViewChild,
+  ViewEncapsulation,
 } from '@angular/core';
-import { animate, AnimationEvent, state, style, transition, trigger } from '@angular/animations';
-import {
-  BasePortalOutlet,
-  ComponentPortal,
-  TemplatePortal,
-  CdkPortalOutlet,
-  DomPortal,
-} from '@angular/cdk/portal';
-import {matSlidePanelAnimations} from './mat-slide-panel-animations';
-import {DOCUMENT} from '@angular/common';
+import { AnimationEvent } from '@angular/animations';
+import { BasePortalOutlet, CdkPortalOutlet, ComponentPortal, TemplatePortal, } from '@angular/cdk/portal';
+import { slideFromLeftAnimations, slideFromRightAnimations } from './mat-slide-panel-animations';
+import { DOCUMENT } from '@angular/common';
 import { ConfigurableFocusTrapFactory, FocusTrap } from '@angular/cdk/a11y';
 import { MatSlidePanelConfig } from './mat-slide-panel-config';
-import { AnimationCurves, AnimationDurations } from '@angular/material/core';
 
 @Component({
   selector: 'mat-slide-panel-container',
@@ -32,16 +25,19 @@ import { AnimationCurves, AnimationDurations } from '@angular/material/core';
   styleUrls: ['mat-slide-panel-container.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  animations: [ matSlidePanelAnimations('right'), matSlidePanelAnimations('left')],
+  animations: [ slideFromLeftAnimations.slideFromLeftAnimationsState, slideFromRightAnimations.slideFromLeftAnimationsState],
   host: {
     'class': 'mat-slide-panel-container',
     'tabindex': '-1',
     'role': 'dialog',
     'aria-modal': 'true',
     '[attr.aria-label]': 'matSlidePanelConfig?.ariaLabel',
-    '[@right]': '{value: _animationState, params: {xValue: xValue}}',
+    '[@right]': '{value: matSlidePanelConfig.slideFrom === "right" ? _animationState : null}',
     '(@right.start)': '_onAnimationStart($event)',
     '(@right.done)': '_onAnimationDone($event)',
+    '[@left]': '{value: matSlidePanelConfig.slideFrom === "left" ? _animationState : null}',
+    '(@left.start)': '_onAnimationStart($event)',
+    '(@left.done)': '_onAnimationDone($event)',
   },
 })
 export class MatSlidePanelContainer extends BasePortalOutlet implements OnDestroy {

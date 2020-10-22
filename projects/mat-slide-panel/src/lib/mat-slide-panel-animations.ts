@@ -8,13 +8,33 @@ import {
 } from '@angular/animations';
 import {AnimationCurves, AnimationDurations} from '@angular/material/core';
 
-export function matSlidePanelAnimations(side) {
-  return trigger(side, [
-    state('void, hidden', style({transform: 'translateX({{xValue}}%)'}), { params: { xValue: '100' }}),
-    state('visible', style({transform: 'translateX(0%)'})),
+/** Animations used by the Material bottom sheet. */
+export const slideFromLeftAnimations: {
+  readonly slideFromLeftAnimationsState: AnimationTriggerMetadata;
+} = {
+  /** Animation that shows and hides a bottom sheet. */
+  slideFromLeftAnimationsState: trigger('left', [
+    state('void, hidden', style({transform: 'translateX(-100%)'})),
+    state('visible', style({transform: 'translateY(0%)'})),
     transition('visible => void, visible => hidden',
       animate(`${AnimationDurations.COMPLEX} ${AnimationCurves.ACCELERATION_CURVE}`)),
-    transition('* => visible',
+    transition('void => visible',
       animate(`${AnimationDurations.EXITING} ${AnimationCurves.DECELERATION_CURVE}`)),
-  ]);
-}
+  ])
+};
+
+
+/** Animations used by the Material bottom sheet. */
+export const slideFromRightAnimations: {
+  readonly slideFromLeftAnimationsState: AnimationTriggerMetadata;
+} = {
+  /** Animation that shows and hides a bottom sheet. */
+  slideFromLeftAnimationsState: trigger('right', [
+    state('void, hidden', style({transform: 'translateX(100%)'})),
+    state('visible', style({transform: 'translateY(0%)'})),
+    transition('visible => void, visible => hidden',
+      animate(`${AnimationDurations.COMPLEX} ${AnimationCurves.ACCELERATION_CURVE}`)),
+    transition('void => visible',
+      animate(`${AnimationDurations.EXITING} ${AnimationCurves.DECELERATION_CURVE}`)),
+  ])
+};
