@@ -163,6 +163,46 @@
           }
         }
       }
+    },
+    "ngx-popover": {
+      "projectType": "library",
+      "root": "projects/ngx-popover",
+      "sourceRoot": "projects/ngx-popover/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ngx-popover/tsconfig.lib.json",
+            "project": "projects/ngx-popover/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-popover/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-popover/src/test.ts",
+            "tsConfig": "projects/ngx-popover/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-popover/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-popover/tsconfig.lib.json",
+              "projects/ngx-popover/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "ngx-workspace"
 }

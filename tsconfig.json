@@ -22,6 +22,10 @@
       "mat-slide-panel": [
         "dist/mat-slide-panel/mat-slide-panel",
         "dist/mat-slide-panel"
+      ],
+      "ngx-popover": [
+        "dist/ngx-popover/ngx-popover",
+        "dist/ngx-popover"
       ]
     }
   },
