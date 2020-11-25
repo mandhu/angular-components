@@ -2,9 +2,16 @@
 
 
 ## About ## 
-This is an angular(V10+) material component for slide overlay panel from left / right;
+This is an angular (V10+) material component for slide overlay panel from left / right;
 
 Most of the API is same as [MatBottomSheet](https://material.angular.io/components/bottom-sheet/api)
+
+
+## Version ## 
+NgxMatSlidePanel | Angular |
+--- | --- |
+0.7 | 10+ |
+0.8 | 11+ |
 
 
 ## Usage

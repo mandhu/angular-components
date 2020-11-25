@@ -68,7 +68,7 @@ export class MatSlidePanelContainer extends BasePortalOutlet implements OnDestro
     super();
 
     this._document = document;
-    this._animationState = this.matSlidePanelConfig.slideFrom;
+    // this._animationState = this.matSlidePanelConfig.slideFrom;
   }
 
   /** Attach a component portal as content to this bottom sheet container. */
