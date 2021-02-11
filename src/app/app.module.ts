@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { MatSlidePanelModule } from '../../projects/mat-slide-panel/src/public-api';
 import { TestComponent } from './test/test.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ThaanaInputModule} from '../../projects/thaana-input/src/lib/thaana-input.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     MatSlidePanelModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ThaanaInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

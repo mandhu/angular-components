@@ -9,6 +9,8 @@
     "build:watch-slide-panel": "ng build --project=ngx-mat-slide-panel --watch",
     "build:lib-popover": "ng build --prod --project=ngx-popover",
     "build:watch-popover": "ng build --project=ngx-popover --watch",
+    "build:thaana-input": "ng build --prod --project=thaana-input",
+    "build:watch-thaana-input": "ng build --project=thaana-input --watch",
     "test": "ng test",
     "test:lib-slide-panel": "ng test --project=ngx-mat-slide-panel",
     "test:lib-popover": "ng test --project=ngx-popover",

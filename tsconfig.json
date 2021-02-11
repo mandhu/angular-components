@@ -26,6 +26,10 @@
       "ngx-popover": [
         "dist/ngx-popover/ngx-popover",
         "dist/ngx-popover"
+      ],
+      "thaana-input": [
+        "dist/thaana-input/thaana-input",
+        "dist/thaana-input"
       ]
     }
   },
