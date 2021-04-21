@@ -1,5 +1,9 @@
 # NgxMatSlidePanel
 
+# Installation
+```bash
+  npm install ngx-mat-slide-panel
+```
 
 ## About ## 
 This is an angular (V10+) material component for slide overlay panel from left / right;
@@ -11,7 +15,7 @@ Most of the API is same as [MatBottomSheet](https://material.angular.io/componen
 NgxMatSlidePanel | Angular |
 --- | --- |
 0.7 | 10+ |
-0.8 | 11+ |
+0.8+ | 11+ |
 
 
 ## Usage

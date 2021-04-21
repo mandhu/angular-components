@@ -3,21 +3,21 @@
 <button (click)="dialogOpen()">Dialog Click</button>
 <div style="height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center">
   <form [formGroup]="form">
-<!--    <mat-form-field>-->
-<!--      <mat-select formControlName="bank_id" placeholder="Bank">-->
-<!--        <mat-option>-->
-<!--          <ngx-mat-select-search formControlName="filter"></ngx-mat-select-search>-->
-<!--        </mat-option>-->
-<!--        <mat-option *ngFor="let bank of banks" [value]="bank.id">-->
-<!--          {{bank.name}}-->
-<!--        </mat-option>-->
-<!--      </mat-select>-->
-<!--    </mat-form-field>-->
-
-    <mat-form-field appearance="outline">
-      <mat-label>Favorite food</mat-label>
-      <input matInput placeholder="Ex. Pizza" thaanaInput formControlName="name" #input>
+    <mat-form-field>
+      <mat-select formControlName="bank_id" placeholder="Bank">
+        <mat-option>
+          <ngx-mat-select-search formControlName="filter"></ngx-mat-select-search>
+        </mat-option>
+        <mat-option *ngFor="let bank of banks" [value]="bank.id">
+          {{bank.name}}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
+
+<!--    <mat-form-field appearance="outline">-->
+<!--      <mat-label>Favorite food</mat-label>-->
+<!--      <input matInput placeholder="Ex. Pizza" thaanaInput formControlName="name" #input>-->
+<!--    </mat-form-field>-->
 
   </form>
 </div>

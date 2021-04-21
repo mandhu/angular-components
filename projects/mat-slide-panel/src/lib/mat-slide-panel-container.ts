@@ -23,7 +23,7 @@ import { MatSlidePanelConfig } from './mat-slide-panel-config';
   selector: 'mat-slide-panel-container',
   templateUrl: 'mat-slide-panel-container.html',
   styleUrls: ['mat-slide-panel-container.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.Default,
   encapsulation: ViewEncapsulation.None,
   animations: [ slideFromLeftAnimations.slideFromLeftAnimationsState, slideFromRightAnimations.slideFromLeftAnimationsState],
   host: {
