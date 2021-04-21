@@ -1,4 +1,5 @@
-import {Directive, ElementRef, HostListener} from '@angular/core';
+import {Directive, ElementRef, forwardRef, HostListener} from '@angular/core';
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 const Keys = {
   q: 'ް',
@@ -68,15 +69,24 @@ const Keys = {
 
 @Directive({
   // tslint:disable-next-line:directive-selector
-  selector: '[thaanaInput]'
+  selector: '[thaanaInput]',
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => ThaanaInputDirective),
+      multi: true
+    }
+  ]
 })
-export class ThaanaInputDirective {
+export class ThaanaInputDirective implements ControlValueAccessor{
 
   selectionStart: number;
   selectionEnd: number;
   key: string;
   value: string;
   valueLength: number;
+  propagateChange: any = () => {};
+  _onTouched: () => void;
 
   @HostListener('keydown', ['$event'])
   keydown(event: KeyboardEvent): void {
@@ -91,7 +101,7 @@ export class ThaanaInputDirective {
   inputChange(event: InputEvent): void {
     let inputKey = this.key === 'Unidentified' ? event.data : this.key;
 
-    if (inputKey !== null) {
+    if (inputKey !== null && inputKey !== 'Backspace') {
       inputKey = inputKey.substring(inputKey.length - 1);
     }
 
@@ -110,6 +120,8 @@ export class ThaanaInputDirective {
         this.elementRef.nativeElement.value = this.value.split(value).join('');
         this.mapLetter(this.elementRef.nativeElement, inputKey);
       }
+    } else {
+      this.propagateChange(this.elementRef.nativeElement.value);
     }
     //
     // stop word deletion and make sure it's not a selection, again Android autocorrect, next-word suggestion
@@ -126,17 +138,28 @@ export class ThaanaInputDirective {
 
   mapLetter(elementRef: HTMLInputElement, key: string): void {
     const value = Keys[key] || key;
-
     // It's a selection
     if (this.selectionStart !== this.selectionEnd) {
       elementRef.value = elementRef.value.substring(0, this.selectionStart) + elementRef.value.substring(this.selectionEnd);
     }
 
     elementRef.value = elementRef.value.substring(0, this.selectionStart) + value + elementRef.value.substring(this.selectionStart);
-
     // maintain cursor pointer after replacement
     elementRef.selectionStart = this.selectionStart + 1;
     elementRef.selectionEnd = this.selectionEnd + 1;
+    this.propagateChange(elementRef.value);
+  }
+
+  registerOnChange(fn: any): void {
+    this.propagateChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this._onTouched = fn;
+  }
+
+  writeValue(value: any): void {
+    this.value = value || 0;
   }
 
 }
