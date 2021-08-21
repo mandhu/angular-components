@@ -1,4 +1,4 @@
-@import '~@angular/cdk/a11y/a11y';
+@use '~@angular/cdk' as cdk;
 
 $_mat-slide-panel-width-increment: 64px;
 $mat-slide-panel-container-vertical-padding: 16px !default;
@@ -12,7 +12,7 @@ $mat-slide-panel-container-horizontal-padding: 16px !default;
   height: 100vh;
   overflow: auto;
 
-  @include cdk-high-contrast(active, off) {
+  @include cdk.high-contrast(active, off) {
     outline: 1px solid;
   }
 }

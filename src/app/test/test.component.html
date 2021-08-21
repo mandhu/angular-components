@@ -1,10 +1,11 @@
 <div style="width: 500px; padding-bottom: 4em">
+  <h1>{{data?.name}}</h1>
   <form [formGroup]="form">
     <mat-form-field>
       <mat-select formControlName="bank_id" placeholder="Bank">
-        <mat-option>
-          <ngx-mat-select-search formControlName="filter"></ngx-mat-select-search>
-        </mat-option>
+<!--        <mat-option>-->
+<!--          <ngx-mat-select-search formControlName="filter"></ngx-mat-select-search>-->
+<!--        </mat-option>-->
         <mat-option *ngFor="let bank of banks" [value]="bank.id">
           {{bank.name}}
         </mat-option>

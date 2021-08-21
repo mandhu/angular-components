@@ -16,6 +16,7 @@ NgxMatSlidePanel | Angular |
 --- | --- |
 0.7 | 10+ |
 0.8+ | 11+ |
+1.0.0+ | 12+ |
 
 
 ## Usage

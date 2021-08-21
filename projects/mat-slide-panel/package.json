@@ -1,6 +1,6 @@
 {
   "name": "ngx-mat-slide-panel",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "author": "Mamdhooh Mohamed",
   "github": "https://github.com/mandhu/angular-material-components",
   "license": "MIT",
@@ -22,9 +22,9 @@
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
-    "@angular/cdk": "^11.0.1",
-    "@angular/common": "^11.0.2",
-    "@angular/core": "^11.0.2",
-    "@angular/material": "^11.0.1"
+    "@angular/cdk": "^12.0.0",
+    "@angular/common": "^12.0.0",
+    "@angular/core": "^12.0.0",
+    "@angular/material": "^12.0.0"
   }
 }

@@ -1,12 +1,11 @@
-import {Component, ElementRef, Input, ViewChild} from '@angular/core';
-import { TestComponent } from './test/test.component';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {HttpClient} from '@angular/common/http';
 import {debounceTime, delay} from 'rxjs/operators';
 import {AppService} from './app.service';
-import {MatBottomSheet} from '@angular/material/bottom-sheet';
-import {MatDialog} from '@angular/material/dialog';
-import {MatSlidePanel} from 'ngx-mat-slide-panel';
+// import {MatSlidePanel} from '../../projects/mat-slide-panel/src/public-api';
+import {TestComponent} from './test/test.component';
+import {MatSlidePanel} from 'mat-slide-panel';
+
 
 @Component({
   selector: 'app-root',
@@ -23,8 +22,6 @@ export class AppComponent {
     private slidePanel: MatSlidePanel,
     private fb: FormBuilder,
     private service: AppService,
-    private bottomSheet: MatBottomSheet,
-    private dialog: MatDialog
   ) {
     this.form = this.fb.group({
       groupA: this.fb.group({
@@ -48,26 +45,19 @@ export class AppComponent {
       console.log({value});
     });
 
-    this.form.get('filter').valueChanges.pipe(debounceTime(200)).subscribe(search => {
-      if (search) {
-        this.service.getLocation(search).subscribe((resp: any) => {
-          this.banks = resp.data.data;
-          // this.cd.detectChanges();
-        });
-      }
-    });
   }
 
   open(): void {
-    console.log(this.form.value);
-    // this.slidePanel.open(TestComponent);
+    this.slidePanel.open(TestComponent, {data: {name: 'Test'}}).afterDismissed().subscribe(res => {
+      console.log(res);
+    });
   }
-
-  btopen(): void {
-    this.bottomSheet.open(TestComponent);
-  }
-
-  dialogOpen(): void {
-    this.dialog.open(TestComponent);
-  }
+  //
+  // btopen(): void {
+  //   this.bottomSheet.open(TestComponent, {data: null});
+  // }
+  //
+  // dialogOpen(): void {
+  //   this.dialog.open(TestComponent, {data: null});
+  // }
 }
