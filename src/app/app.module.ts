@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 // import { MatSlidePanelModule } from '../../projects/mat-slide-panel/src/public-api';
 import { TestComponent } from './test/test.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import {ThaanaInputModule} from '../../projects/thaana-input/src/lib/thaana-input.module';
+import {ThaanaInputModule} from '../../projects/thaana-input/src/lib/thaana-input.module';
 import {NgxMatSelectSearchModule} from 'ngx-mat-select-search';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -14,8 +14,9 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
-import {ThaanaInputModule} from 'ngx-thaana-input';
+// import {ThaanaInputModule} from 'ngx-thaana-input';
 import {MatSlidePanelModule} from 'ngx-mat-slide-panel';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {MatSlidePanelModule} from 'ngx-mat-slide-panel';
     MatSelectModule,
     HttpClientModule,
     MatBottomSheetModule,
-    MatDialogModule
+    MatDialogModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

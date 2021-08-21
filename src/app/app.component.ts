@@ -27,15 +27,25 @@ export class AppComponent {
     private dialog: MatDialog
   ) {
     this.form = this.fb.group({
-      bank_id: null,
-      filter: null,
-      name: null
+      groupA: this.fb.group({
+        name: ''
+      }),
+      groupB: this.fb.group({
+        name: ''
+      }),
+      age: null,
+      dob: null,
+      filter: null
     });
 
-    this.form.get('name').valueChanges.pipe(delay(300)).subscribe(value => {
-      console.log({
-        value,
-      });
+    this.form.get('groupA.name').valueChanges.subscribe(value => {
+      console.log({value});
+    });
+    this.form.get('groupB.name').valueChanges.subscribe(value => {
+      console.log({value});
+    });
+    this.form.get('age').valueChanges.pipe(delay(10)).subscribe(value => {
+      console.log({value});
     });
 
     this.form.get('filter').valueChanges.pipe(debounceTime(200)).subscribe(search => {
@@ -49,8 +59,8 @@ export class AppComponent {
   }
 
   open(): void {
-    // console.log(this.form.value);
-    this.slidePanel.open(TestComponent);
+    console.log(this.form.value);
+    // this.slidePanel.open(TestComponent);
   }
 
   btopen(): void {

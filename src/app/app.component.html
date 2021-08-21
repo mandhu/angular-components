@@ -3,21 +3,51 @@
 <button (click)="dialogOpen()">Dialog Click</button>
 <div style="height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center">
   <form [formGroup]="form">
-    <mat-form-field>
-      <mat-select formControlName="bank_id" placeholder="Bank">
-        <mat-option>
-          <ngx-mat-select-search formControlName="filter"></ngx-mat-select-search>
-        </mat-option>
-        <mat-option *ngFor="let bank of banks" [value]="bank.id">
-          {{bank.name}}
-        </mat-option>
-      </mat-select>
+<!--    <mat-form-field>-->
+<!--      <mat-select formControlName="dob" placeholder="Bank">-->
+<!--        <mat-option>-->
+<!--          <ngx-mat-select-search formControlName="filter"></ngx-mat-select-search>-->
+<!--        </mat-option>-->
+<!--        <mat-option *ngFor="let bank of banks" [value]="bank.id">-->
+<!--          {{bank.name}}-->
+<!--        </mat-option>-->
+<!--      </mat-select>-->
+<!--    </mat-form-field>-->
+
+    <div formGroupName="groupA">
+      <mat-form-field appearance="outline">
+        <mat-label>Filter food</mat-label>
+        <input matInput placeholder="Ex. Pizza" thaanaInput formControlName="name">
+      </mat-form-field>
+    </div>
+
+    <div formGroupName="groupB">
+    <mat-form-field appearance="outline">
+      <mat-label>Favorite food</mat-label>
+      <input matInput placeholder="Ex. Pizza" thaanaInput formControlName="name">
+    </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Afe  food</mat-label>
+      <input matInput placeholder="Ex. Age" thaanaInput formControlName="age">
     </mat-form-field>
 
-<!--    <mat-form-field appearance="outline">-->
-<!--      <mat-label>Favorite food</mat-label>-->
-<!--      <input matInput placeholder="Ex. Pizza" thaanaInput formControlName="name" #input>-->
-<!--    </mat-form-field>-->
+    <mat-form-field class="example-full-width">
+      <mat-label>Bank</mat-label>
+      <input type="text"
+             placeholder="Search bank"
+             aria-label="Number"
+             matInput
+             formControlName="filter"
+             thaanaInput
+             [matAutocomplete]="auto">
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option *ngFor="let option of banks" [value]="option.id">
+          {{option?.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
 
   </form>
 </div>
