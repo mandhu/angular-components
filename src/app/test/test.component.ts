@@ -22,9 +22,9 @@ export class TestComponent implements OnInit {
     @Inject(MAT_SLIDE_PANEL_DATA) public data,
   ) {
     this.form = this.fb.group({
-      bank_id: null,
-      filter: null
+      name: null
     });
+    this.form.patchValue(this.data);
   }
 
   ngOnInit(): void {

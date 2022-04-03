@@ -5,7 +5,7 @@ import {AppComponent} from './app.component';
 // import {MatSlidePanelModule} from '../../projects/mat-slide-panel/src/public-api';
 import {TestComponent} from './test/test.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-// import {ThaanaInputModule} from '../../projects/thaana-input/src/lib/thaana-input.module';
+import {ThaanaInputModule} from '../../projects/thaana-input/src/lib/thaana-input.module';
 // import {NgxMatSelectSearchModule} from 'ngx-mat-select-search';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -21,13 +21,13 @@ import {MatSlidePanelModule} from 'mat-slide-panel';
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent
+    TestComponent,
   ],
   imports: [
     BrowserModule,
     MatSlidePanelModule,
     BrowserAnimationsModule,
-    // ThaanaInputModule,
+    ThaanaInputModule,
     // NgxMatSelectSearchModule,
     ReactiveFormsModule,
     MatFormFieldModule,
@@ -36,7 +36,8 @@ import {MatSlidePanelModule} from 'mat-slide-panel';
     HttpClientModule,
     MatBottomSheetModule,
     // MatDialogModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    // ThaanaInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

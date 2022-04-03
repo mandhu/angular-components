@@ -24,31 +24,23 @@ export class AppComponent {
     private service: AppService,
   ) {
     this.form = this.fb.group({
-      groupA: this.fb.group({
-        name: ''
-      }),
-      groupB: this.fb.group({
-        name: ''
-      }),
-      age: null,
-      dob: null,
       filter: null
     });
 
-    this.form.get('groupA.name').valueChanges.subscribe(value => {
+    this.form.get('filter').valueChanges.subscribe(value => {
       console.log({value});
     });
-    this.form.get('groupB.name').valueChanges.subscribe(value => {
-      console.log({value});
-    });
-    this.form.get('age').valueChanges.pipe(delay(10)).subscribe(value => {
-      console.log({value});
-    });
+    // this.form.get('groupB.name').valueChanges.subscribe(value => {
+    //   console.log({value});
+    // });
+    // this.form.get('age').valueChanges.pipe(delay(10)).subscribe(value => {
+    //   console.log({value});
+    // });
 
   }
 
   open(): void {
-    this.slidePanel.open(TestComponent, {data: {name: 'Test'}}).afterDismissed().subscribe(res => {
+    this.slidePanel.open(TestComponent, {data: {name: 'މަމްދޫހު'}}).afterDismissed().subscribe(res => {
       console.log(res);
     });
   }

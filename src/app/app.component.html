@@ -1,25 +1,15 @@
 <button (click)="open()">Slide Click</button>
 <!--<button (click)="btopen()">Bt Sheet Click</button>-->
 <!--<button (click)="dialogOpen()">Dialog Click</button>-->
-<!--<div style="height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center">-->
-<!--  <form [formGroup]="form">-->
-<!--&lt;!&ndash;    <mat-form-field>&ndash;&gt;-->
-<!--&lt;!&ndash;      <mat-select formControlName="dob" placeholder="Bank">&ndash;&gt;-->
-<!--&lt;!&ndash;        <mat-option>&ndash;&gt;-->
-<!--&lt;!&ndash;          <ngx-mat-select-search formControlName="filter"></ngx-mat-select-search>&ndash;&gt;-->
-<!--&lt;!&ndash;        </mat-option>&ndash;&gt;-->
-<!--&lt;!&ndash;        <mat-option *ngFor="let bank of banks" [value]="bank.id">&ndash;&gt;-->
-<!--&lt;!&ndash;          {{bank.name}}&ndash;&gt;-->
-<!--&lt;!&ndash;        </mat-option>&ndash;&gt;-->
-<!--&lt;!&ndash;      </mat-select>&ndash;&gt;-->
-<!--&lt;!&ndash;    </mat-form-field>&ndash;&gt;-->
+<div style="height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center">
+  <form [formGroup]="form">
 
-<!--    <div formGroupName="groupA">-->
-<!--      <mat-form-field appearance="outline">-->
-<!--        <mat-label>Filter food</mat-label>-->
-<!--        <input matInput placeholder="Ex. Pizza" thaanaInput formControlName="name">-->
-<!--      </mat-form-field>-->
-<!--    </div>-->
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Filter food</mat-label>
+        <input matInput placeholder="Ex. Pizza" thaanaInput formControlName="filter">
+      </mat-form-field>
+    </div>
 
 <!--    <div formGroupName="groupB">-->
 <!--    <mat-form-field appearance="outline">-->
@@ -49,6 +39,6 @@
 <!--      </mat-autocomplete>-->
 <!--    </mat-form-field>-->
 
-<!--  </form>-->
-<!--</div>-->
+  </form>
+</div>
 
