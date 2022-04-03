@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
-// import {MAT_SLIDE_PANEL_DATA} from 'projects/mat-slide-panel/src/public-api';
+import {MAT_SLIDE_PANEL_DATA} from 'projects/mat-slide-panel/src/public-api';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {MAT_SLIDE_PANEL_DATA} from 'mat-slide-panel';
+// import {MAT_SLIDE_PANEL_DATA} from 'mat-slide-panel';
 
 @Component({
   selector: 'app-test',

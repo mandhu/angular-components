@@ -2,9 +2,9 @@ import {Component, ElementRef, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {debounceTime, delay} from 'rxjs/operators';
 import {AppService} from './app.service';
-// import {MatSlidePanel} from '../../projects/mat-slide-panel/src/public-api';
+import {MatSlidePanel} from '../../projects/mat-slide-panel/src/public-api';
 import {TestComponent} from './test/test.component';
-import {MatSlidePanel} from 'mat-slide-panel';
+// import {MatSlidePanel} from 'mat-slide-panel';
 
 
 @Component({

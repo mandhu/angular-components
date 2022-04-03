@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-// import {MatSlidePanelModule} from '../../projects/mat-slide-panel/src/public-api';
+import {MatSlidePanelModule} from '../../projects/mat-slide-panel/src/public-api';
 import {TestComponent} from './test/test.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ThaanaInputModule} from '../../projects/thaana-input/src/lib/thaana-input.module';
@@ -16,7 +16,7 @@ import {MatInputModule} from '@angular/material/input';
 // import {ThaanaInputModule} from 'ngx-thaana-input';
 // import {MatSlidePanelModule} from 'ngx-mat-slide-panel';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatSlidePanelModule} from 'mat-slide-panel';
+// import {MatSlidePanelModule} from 'mat-slide-panel';
 
 @NgModule({
   declarations: [

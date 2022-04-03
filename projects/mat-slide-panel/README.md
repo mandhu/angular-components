@@ -13,10 +13,11 @@ Most of the API is same as [MatBottomSheet](https://material.angular.io/componen
 
 ## Version ## 
 NgxMatSlidePanel | Angular |
---- | --- |
-0.7 | 10+ |
-0.8+ | 11+ |
-1.0.0+ | 12+ |
+--- |---------|
+0.7 | 10+     |
+0.8+ | 11+     |
+1.0.0+ | 12+     |
+2.0.0+ | 13+     |
 
 
 ## Usage
