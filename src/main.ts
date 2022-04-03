@@ -10,3 +10,9 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
+
+
+// "ng-thaana": "^1.0.0",
+//   "ngx-mat-select-search": "^3.2.0",
+//   "ngx-mat-slide-panel": "1.0.0",
+//   "ngx-thaana-input": "0.0.2",
