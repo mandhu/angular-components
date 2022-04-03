@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@use '~@angular/material' as mat;
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@use '@angular/material' as mat;
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import "projects/mat-slide-panel/src/lib/mat-slide-panel-theme";
 // Plus imports for other components in your app.
 
