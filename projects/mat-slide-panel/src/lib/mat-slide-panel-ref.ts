@@ -1,5 +1,5 @@
 import {Location} from '@angular/common';
-import {ESCAPE, hasModifierKey} from '@angular/cdk/keycodes';
+import {hasModifierKey} from '@angular/cdk/keycodes';
 import {OverlayRef} from '@angular/cdk/overlay';
 import {merge, Observable, Subject} from 'rxjs';
 import {filter, take} from 'rxjs/operators';
@@ -51,7 +51,7 @@ export class MatSlidePanelRef<T = any, R = any> {
 
     merge(
       _overlayRef.backdropClick(),
-      _overlayRef.keydownEvents().pipe(filter(event => event.keyCode === ESCAPE))
+      _overlayRef.keydownEvents().pipe(filter(event => event.key === 'Escape'))
     ).subscribe(event => {
       if (!this.disableClose &&
         (event.type !== 'keydown' || !hasModifierKey(event as KeyboardEvent))) {

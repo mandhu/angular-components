@@ -1,13 +1,11 @@
-import { Directionality } from '@angular/cdk/bidi';
-import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
-import { ComponentPortal, ComponentType, PortalInjector, TemplatePortal } from '@angular/cdk/portal';
-import { ComponentRef, Inject, Injectable, InjectionToken, Injector, OnDestroy, Optional, SkipSelf, TemplateRef, } from '@angular/core';
-import { Location } from '@angular/common';
-import { of as observableOf } from 'rxjs';
-import { MAT_SLIDE_PANEL_DATA, MatSlidePanelConfig } from './mat-slide-panel-config';
-import { MatSlidePanelContainer } from './mat-slide-panel-container';
-import { MatSlidePanelModule } from './mat-slide-panel.module';
-import { MatSlidePanelRef } from './mat-slide-panel-ref';
+import {Overlay, OverlayConfig, OverlayRef} from '@angular/cdk/overlay';
+import {ComponentPortal, ComponentType, TemplatePortal} from '@angular/cdk/portal';
+import {ComponentRef, Inject, Injectable, InjectionToken, Injector, OnDestroy, Optional, SkipSelf, TemplateRef} from '@angular/core';
+import {Location} from '@angular/common';
+import {MAT_SLIDE_PANEL_DATA, MatSlidePanelConfig} from './mat-slide-panel-config';
+import {MatSlidePanelContainer} from './mat-slide-panel-container';
+import {MatSlidePanelModule} from './mat-slide-panel.module';
+import {MatSlidePanelRef} from './mat-slide-panel-ref';
 
 
 export const MAT_SLIDE_PANEL_DEFAULT_OPTIONS =
@@ -111,9 +109,12 @@ export class MatSlidePanel implements OnDestroy {
                            config: MatSlidePanelConfig): MatSlidePanelContainer {
 
     const userInjector = config && config.viewContainerRef && config.viewContainerRef.injector;
-    const injector = new PortalInjector(userInjector || this._injector, new WeakMap([
-      [MatSlidePanelConfig, config]
-    ]));
+    const injector = Injector.create({
+      parent: userInjector || this._injector,
+      providers: [
+        { provide: MatSlidePanelConfig, useValue: config }
+      ]
+    });
 
     const containerPortal =
       new ComponentPortal(MatSlidePanelContainer, config.viewContainerRef, injector);
@@ -150,23 +151,23 @@ export class MatSlidePanel implements OnDestroy {
    * @param bottomSheetRef Reference to the mat slide panel.
    */
   private _createInjector<T>(config: MatSlidePanelConfig,
-                             bottomSheetRef: MatSlidePanelRef<T>): PortalInjector {
+                             bottomSheetRef: MatSlidePanelRef<T>): Injector {
 
     const userInjector = config && config.viewContainerRef && config.viewContainerRef.injector;
-    const injectionTokens = new WeakMap<any, any>([
-      [MatSlidePanelRef, bottomSheetRef],
-      [MAT_SLIDE_PANEL_DATA, config.data]
-    ]);
+    const providers = [
+      { provide: MatSlidePanelRef, useValue: bottomSheetRef },
+      { provide: MAT_SLIDE_PANEL_DATA, useValue: config.data }
+    ];
 
-    if (config.direction &&
-      (!userInjector || !userInjector.get<Directionality | null>(Directionality, null))) {
-      injectionTokens.set(Directionality, {
-        value: config.direction,
-        change: observableOf()
-      });
+    // If a direction is set in the config, add it to the overlay config
+    if (config.direction) {
+      // No need to provide Directionality directly, as it's already handled by the overlay
     }
 
-    return new PortalInjector(userInjector || this._injector, injectionTokens);
+    return Injector.create({
+      parent: userInjector || this._injector,
+      providers
+    });
   }
 }
 

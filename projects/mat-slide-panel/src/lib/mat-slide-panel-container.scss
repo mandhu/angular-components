@@ -11,6 +11,8 @@ $mat-slide-panel-container-horizontal-padding: 16px !default;
   outline: 0;
   height: 100vh;
   overflow: auto;
+  background: var(--mat-sys-surface, --mat-sys-surface-container);
+  color: var(--mat-sys-on-surface, --mat-sys-surface-container);
 
   @include cdk.high-contrast(active, off) {
     outline: 1px solid;

@@ -14,10 +14,10 @@ import {
   DOCUMENT
 } from '@angular/core';
 import { AnimationEvent } from '@angular/animations';
-import { BasePortalOutlet, CdkPortalOutlet, ComponentPortal, TemplatePortal, } from '@angular/cdk/portal';
+import { CdkPortalOutlet, ComponentPortal, PortalOutlet, TemplatePortal } from '@angular/cdk/portal';
 import { slideFromLeftAnimations, slideFromRightAnimations } from './mat-slide-panel-animations';
 
-import { ConfigurableFocusTrapFactory, FocusTrap } from '@angular/cdk/a11y';
+import { FocusTrap, FocusTrapFactory } from '@angular/cdk/a11y';
 import { MatSlidePanelConfig } from './mat-slide-panel-config';
 
 @Component({
@@ -42,7 +42,7 @@ import { MatSlidePanelConfig } from './mat-slide-panel-config';
     },
     standalone: false
 })
-export class MatSlidePanelContainer extends BasePortalOutlet implements OnDestroy {
+export class MatSlidePanelContainer implements PortalOutlet, OnDestroy {
   /** The portal outlet inside of this container into which the content will be loaded. */
   @ViewChild(CdkPortalOutlet, {static: true}) _portalOutlet: CdkPortalOutlet;
 
@@ -64,11 +64,9 @@ export class MatSlidePanelContainer extends BasePortalOutlet implements OnDestro
   constructor(
     private _elementRef: ElementRef<HTMLElement>,
     private _changeDetectorRef: ChangeDetectorRef,
-    private _focusTrapFactory: ConfigurableFocusTrapFactory,
+    private _focusTrapFactory: FocusTrapFactory,
     @Optional() @Inject(DOCUMENT) document: any,
     public matSlidePanelConfig: MatSlidePanelConfig) {
-    super();
-
     this._document = document;
     // this._animationState = this.matSlidePanelConfig.slideFrom;
   }
@@ -89,11 +87,31 @@ export class MatSlidePanelContainer extends BasePortalOutlet implements OnDestro
     return this._portalOutlet.attachTemplatePortal(portal);
   }
 
-  attachPortal = <C, T = any, R = any>(portal: ComponentPortal<C> | TemplatePortal<T> | any) => {
+  /** Attach a portal to this outlet. */
+  attach<T = any>(portal: any): T {
     this._validatePortalAttached();
     this._setPanelClass();
     this._savePreviouslyFocusedElement();
     return this._portalOutlet.attach(portal);
+  }
+
+  /** Detach the currently attached portal from this outlet. */
+  detach(): void {
+    if (this._portalOutlet) {
+      this._portalOutlet.detach();
+    }
+  }
+
+  /** Performs cleanup before the outlet is destroyed. */
+  dispose(): void {
+    if (this._portalOutlet) {
+      this._portalOutlet.dispose();
+    }
+  }
+
+  /** Whether this outlet has an attached portal. */
+  hasAttached(): boolean {
+    return this._portalOutlet.hasAttached();
   }
 
   enter(): void {

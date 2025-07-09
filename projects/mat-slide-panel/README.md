@@ -14,6 +14,7 @@ Most of the API is same as [MatBottomSheet](https://material.angular.io/componen
 ## Version ## 
 NgxMatSlidePanel | Angular |
 --- |---------|
+20.0.0 | 20+     |
 0.7 | 10+     |
 0.8+ | 11+     |
 1.0.0+ | 12+     |
@@ -99,6 +100,8 @@ export class TestComponent implements OnInit {
 
 ## Theming
 
+- remove mixin import from your styles.scss file and add the following to your styles.scss file
+- 20.0.0+: not required anymore, the theming is now done automatically
 ```scss
 @import '~ngx-mat-slide-panel/src/lib/mat-slide-panel-theme.scss';
 

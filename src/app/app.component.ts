@@ -1,17 +1,17 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {UntypedFormBuilder, UntypedFormGroup} from '@angular/forms';
-import {debounceTime, delay} from 'rxjs/operators';
 import {AppService} from './app.service';
 import {MatSlidePanel} from '../../projects/mat-slide-panel/src/public-api';
 import {TestComponent} from './test/test.component';
+
 // import {MatSlidePanel} from 'mat-slide-panel';
 
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
-    standalone: false
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  standalone: false
 })
 export class AppComponent {
   title = 'ngx-workspace';
@@ -41,7 +41,9 @@ export class AppComponent {
   }
 
   open(): void {
-    this.slidePanel.open(TestComponent, {data: {name: 'މަމްދޫހު'}}).afterDismissed().subscribe(res => {
+    this.slidePanel.open(TestComponent, {
+      data: {name: 'މަމްދޫހު'},
+    }).afterDismissed().subscribe(res => {
       console.log(res);
     });
   }
