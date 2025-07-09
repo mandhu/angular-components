@@ -7,13 +7,13 @@
   .mat-slide-panel-container {
     @include mat.elevation-transition();
     @include mat.elevation(16);
-    background: mat.get-color-from-palette($background, dialog);
-    color: mat.get-color-from-palette($foreground, text);
+    background: mat.m2-get-color-from-palette($background, dialog);
+    color: mat.m2-get-color-from-palette($foreground, text);
   }
 }
 
 @mixin mat-slide-panel-typography($config) {
   .mat-slide-panel-container {
-    @include mat.typography-level($config, body-1);
+    @include mat.m2-typography-level($config, body-1);
   }
 }
