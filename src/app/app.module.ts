@@ -8,7 +8,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ThaanaInputModule} from '../../projects/thaana-input/src/lib/thaana-input.module';
 // import {NgxMatSelectSearchModule} from 'ngx-mat-select-search';
 import {ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -18,28 +18,20 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 // import {MatSlidePanelModule} from 'ngx-mat-slide-panel';
 // import {MatSlidePanelModule} from 'mat-slide-panel';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    TestComponent,
-  ],
-  imports: [
-    BrowserModule,
-    MatSlidePanelModule,
-    BrowserAnimationsModule,
-    ThaanaInputModule,
-    // NgxMatSelectSearchModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    HttpClientModule,
-    MatBottomSheetModule,
-    // MatDialogModule,
-    MatAutocompleteModule,
-    // ThaanaInputModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        TestComponent,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        MatSlidePanelModule,
+        BrowserAnimationsModule,
+        ThaanaInputModule,
+        // NgxMatSelectSearchModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatBottomSheetModule,
+        // MatDialogModule,
+        MatAutocompleteModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
