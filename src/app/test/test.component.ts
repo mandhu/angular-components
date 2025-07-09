@@ -4,9 +4,10 @@ import {UntypedFormBuilder, UntypedFormGroup} from '@angular/forms';
 // import {MAT_SLIDE_PANEL_DATA} from 'mat-slide-panel';
 
 @Component({
-  selector: 'app-test',
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.scss']
+    selector: 'app-test',
+    templateUrl: './test.component.html',
+    styleUrls: ['./test.component.scss'],
+    standalone: false
 })
 export class TestComponent implements OnInit {
 

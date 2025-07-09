@@ -20,25 +20,26 @@ import { ConfigurableFocusTrapFactory, FocusTrap } from '@angular/cdk/a11y';
 import { MatSlidePanelConfig } from './mat-slide-panel-config';
 
 @Component({
-  selector: 'mat-slide-panel-container',
-  templateUrl: 'mat-slide-panel-container.html',
-  styleUrls: ['mat-slide-panel-container.scss'],
-  changeDetection: ChangeDetectionStrategy.Default,
-  encapsulation: ViewEncapsulation.None,
-  animations: [ slideFromLeftAnimations.slideFromLeftAnimationsState, slideFromRightAnimations.slideFromLeftAnimationsState],
-  host: {
-    'class': 'mat-slide-panel-container',
-    'tabindex': '-1',
-    'role': 'dialog',
-    'aria-modal': 'true',
-    '[attr.aria-label]': 'matSlidePanelConfig?.ariaLabel',
-    '[@right]': '{value: matSlidePanelConfig.slideFrom === "right" ? _animationState : null}',
-    '(@right.start)': '_onAnimationStart($event)',
-    '(@right.done)': '_onAnimationDone($event)',
-    '[@left]': '{value: matSlidePanelConfig.slideFrom === "left" ? _animationState : null}',
-    '(@left.start)': '_onAnimationStart($event)',
-    '(@left.done)': '_onAnimationDone($event)',
-  },
+    selector: 'mat-slide-panel-container',
+    templateUrl: 'mat-slide-panel-container.html',
+    styleUrls: ['mat-slide-panel-container.scss'],
+    changeDetection: ChangeDetectionStrategy.Default,
+    encapsulation: ViewEncapsulation.None,
+    animations: [slideFromLeftAnimations.slideFromLeftAnimationsState, slideFromRightAnimations.slideFromLeftAnimationsState],
+    host: {
+        'class': 'mat-slide-panel-container',
+        'tabindex': '-1',
+        'role': 'dialog',
+        'aria-modal': 'true',
+        '[attr.aria-label]': 'matSlidePanelConfig?.ariaLabel',
+        '[@right]': '{value: matSlidePanelConfig.slideFrom === "right" ? _animationState : null}',
+        '(@right.start)': '_onAnimationStart($event)',
+        '(@right.done)': '_onAnimationDone($event)',
+        '[@left]': '{value: matSlidePanelConfig.slideFrom === "left" ? _animationState : null}',
+        '(@left.start)': '_onAnimationStart($event)',
+        '(@left.done)': '_onAnimationDone($event)',
+    },
+    standalone: false
 })
 export class MatSlidePanelContainer extends BasePortalOutlet implements OnDestroy {
   /** The portal outlet inside of this container into which the content will be loaded. */

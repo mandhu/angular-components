@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lib-ngx-popover',
-  template: `
+    selector: 'lib-ngx-popover',
+    template: `
     <p>
       ngx-popover works!
     </p>
   `,
-  styles: [
-  ]
+    styles: [],
+    standalone: false
 })
 export class NgxPopoverComponent implements OnInit {
 

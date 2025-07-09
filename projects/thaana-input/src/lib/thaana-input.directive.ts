@@ -11,8 +11,9 @@ const Keys = {
 };
 
 @Directive({
-  // tslint:disable-next-line:directive-selector
-  selector: '[thaanaInput]',
+    // tslint:disable-next-line:directive-selector
+    selector: '[thaanaInput]',
+    standalone: false
 })
 export class ThaanaInputDirective {
   @Output() thaanaInput = new EventEmitter();
