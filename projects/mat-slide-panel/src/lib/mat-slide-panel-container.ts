@@ -11,11 +11,12 @@ import {
   Optional,
   ViewChild,
   ViewEncapsulation,
+  DOCUMENT
 } from '@angular/core';
 import { AnimationEvent } from '@angular/animations';
 import { BasePortalOutlet, CdkPortalOutlet, ComponentPortal, TemplatePortal, } from '@angular/cdk/portal';
 import { slideFromLeftAnimations, slideFromRightAnimations } from './mat-slide-panel-animations';
-import { DOCUMENT } from '@angular/common';
+
 import { ConfigurableFocusTrapFactory, FocusTrap } from '@angular/cdk/a11y';
 import { MatSlidePanelConfig } from './mat-slide-panel-config';
 
