@@ -199,6 +199,6 @@
           }
         }
       }
-    }},
-  "defaultProject": "ngx-workspace"
+    }
+  }
 }

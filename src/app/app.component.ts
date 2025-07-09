@@ -1,5 +1,5 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup} from '@angular/forms';
 import {debounceTime, delay} from 'rxjs/operators';
 import {AppService} from './app.service';
 import {MatSlidePanel} from '../../projects/mat-slide-panel/src/public-api';
@@ -14,13 +14,13 @@ import {TestComponent} from './test/test.component';
 })
 export class AppComponent {
   title = 'ngx-workspace';
-  form: FormGroup;
+  form: UntypedFormGroup;
   banks = [];
   @ViewChild('input') input: ElementRef;
 
   constructor(
     private slidePanel: MatSlidePanel,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private service: AppService,
   ) {
     this.form = this.fb.group({
