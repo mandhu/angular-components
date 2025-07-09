@@ -8,14 +8,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ThaanaInputModule} from '../../projects/thaana-input/src/lib/thaana-input.module';
 // import {NgxMatSelectSearchModule} from 'ngx-mat-select-search';
 import {ReactiveFormsModule} from '@angular/forms';
-import {MatLegacyFormFieldModule as MatFormFieldModule} from '@angular/material/legacy-form-field';
-import {MatLegacySelectModule as MatSelectModule} from '@angular/material/legacy-select';
 import {HttpClientModule} from '@angular/common/http';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
-import {MatLegacyInputModule as MatInputModule} from '@angular/material/legacy-input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 // import {ThaanaInputModule} from 'ngx-thaana-input';
 // import {MatSlidePanelModule} from 'ngx-mat-slide-panel';
-import {MatLegacyAutocompleteModule as MatAutocompleteModule} from '@angular/material/legacy-autocomplete';
 // import {MatSlidePanelModule} from 'mat-slide-panel';
 
 @NgModule({
